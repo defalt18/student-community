@@ -69,6 +69,7 @@ function Home({ imgs, user }) {
 								)}
 							</h1>
 						</div>
+						
 						<div
 							className='appitem'
 							style={{

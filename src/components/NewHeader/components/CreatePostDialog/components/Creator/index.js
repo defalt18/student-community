@@ -68,7 +68,13 @@ function Creator(props) {
 				image: imageURL ?? '',
 				id: postID
 			}
-			await createPost(postContent, postID)
+			try {
+				await createPost(postContent, postID)
+			}
+			catch (error) {
+				console.log(error);
+			}
+
 			toggleView(VIEWS.Success)
 		} else alert('Add a caption!')
 	}, [postData, postImage, caption, toggleView, toggleLoading])
@@ -119,6 +125,7 @@ function Creator(props) {
 						<p className='text-secondary text-outline_blue'>Photo</p>
 					</div>
 				</button>
+
 			</div>
 			<Button
 				variant='filled'
@@ -129,6 +136,6 @@ function Creator(props) {
 			/>
 		</>
 	)
-}
 
+}
 export default React.memo(Creator)

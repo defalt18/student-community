@@ -53,10 +53,12 @@ export const fetchAllStories = (setter) => {
 
 export const createStory = async (storyID, storyData) => {
 	const url = await uploadImageInDirectory('stories', storyID, storyData.image)
-	await db
-		.collection('stories')
-		.doc(storyID)
-		.set({ ...storyData, image: url })
+	try {
+		await db
+			.collection('stories')
+			.doc(storyID)
+			.set({ ...storyData, image: url })
+	} catch (error) { console.log(error); }
 }
 
 export const deleteOldData = async (allStories) => {

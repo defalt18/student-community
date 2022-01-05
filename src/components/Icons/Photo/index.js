@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 function Photo(props) {
 	return (
 		<svg
