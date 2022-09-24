@@ -7,7 +7,7 @@ import _map from 'lodash/map'
 import _has from 'lodash/has'
 import ContentCard from './components/ContentCard'
 import UserCard from './components/UserCard'
-import { deleteUserByAdmin, deleteDocumentByAdmin } from './utils'
+import { deleteDocumentByAdmin } from './utils'
 import { useHistory, useParams } from 'react-router-dom'
 
 const VIEWS = {

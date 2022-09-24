@@ -50,7 +50,7 @@ function Clubs(props) {
 								variant='outline'
 								text='View club page'
 								callback={() => headToPage(club.NO_ID_FIELD)}
-								className='px-4 py-1 mt-8'
+								className='px-4 py-1 mt-8 text-secondary'
 							/>
 						</div>
 					))}

@@ -3,30 +3,34 @@ import Button from 'components/Button'
 import MediaContainer from 'components/Media'
 import _map from 'lodash/map'
 import image from 'assets/images/resources_vector.svg'
+import videoImage from 'assets/images/ondemand_video.png'
+import settingsImage from 'assets/images/settings_applications.png'
+import linkImage from 'assets/images/insert_link.png'
+import bookmarkImage from 'assets/images/collections_bookmark.png'
 
 const Resources = [
 	{
 		id: 'Books',
 		name: 'Books',
-		image: '',
+		image: bookmarkImage,
 		link: 'https://en.wikipedia.org/'
 	},
 	{
 		id: 'Videos',
 		name: 'Videos',
-		image: '',
+		image: videoImage,
 		link: 'https://en.wikipedia.org/'
 	},
 	{
 		id: 'UsefulLinks',
 		name: 'Useful Links',
-		image: '',
+		image: linkImage,
 		link: 'https://en.wikipedia.org/'
 	},
 	{
 		id: 'Software&Licences',
 		name: 'Software & Licences',
-		image: '',
+		image: settingsImage,
 		link: 'https://en.wikipedia.org/'
 	}
 ]
@@ -50,17 +54,20 @@ function Academic() {
 				</div>
 			</div>
 			<div className='mt-24 w-full'>
-				<p className='prompt-h4 text-white mb-8'>
+				<p className='prompt-text text-white mb-8'>
 					Checkout available resources
 				</p>
-				<div className='flex flex-wrap gap-x-3 justify-evenly items-center'>
+				<div className='flex flex-wrap gap-x-[24px] items-center'>
 					{_map(Resources, (resource) => (
 						<div
 							id={resource.id}
-							className='bg-header_blue rounded p-3 pt-40 flex-1'
+							className='bg-header_blue rounded w-[260px] h-[152px] flex items-center justify-center gap-[12px] flex-col'
 						>
-							<MediaContainer src={resource.image} />
-							<p className='text-secondary text-white mb-12'>{resource.name}</p>
+							<MediaContainer
+								src={resource.image}
+								className='h-[54px] w-[54px]'
+							/>
+							<p className='prompt-subtext-02 text-white'>{resource.name}</p>
 						</div>
 					))}
 				</div>

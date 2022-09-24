@@ -221,7 +221,7 @@ function Post(props) {
 				{user && (
 					<div className='flex flex-row gap-x-6 items-center px-3 py-2 bg-header_blue rounded w-full'>
 						<input
-							className='bg-header_blue text-text_placeholder border-none w-full text-white outline-none'
+							className='bg-header_blue text-text_placeholder border-none w-full text-white outline-none text-secondary'
 							placeholder='Add a comment'
 							value={postComment}
 							onChange={onChange}

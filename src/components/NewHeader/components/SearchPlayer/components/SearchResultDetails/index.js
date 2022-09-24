@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import _map from 'lodash/map'
 import UserCard from 'components/UserCards'
 import { CircularProgress as Loader } from '@material-ui/core'
 import Button from 'components/Button'
 import { fetchSearchResults } from 'pages/Home/utils/home-utils'
 import _isEmpty from 'lodash/isEmpty'
+import { useAsync, useToggle } from 'react-use'
 
 const LoaderStyles = {
 	color: '#fff',
@@ -13,24 +14,21 @@ const LoaderStyles = {
 
 function SearchResultDetails(props) {
 	const { searchString, userdata } = props
-	const [fetching, setFetching] = useState(false)
+	const [fetching, toggle] = useToggle(false)
 	const [content, setContent] = useState(null)
 
 	// TODO : Write a Search Function based on updated firebase
 	const searchFn = useCallback(
 		async (string) => {
-			setFetching(true)
-			return await fetchSearchResults(string)
+			toggle()
+			const data = await fetchSearchResults(string)
+			setContent(data)
+			toggle()
 		},
-		[setFetching]
+		[setContent, toggle]
 	)
 
-	useEffect(() => {
-		searchFn(searchString).then((response) => {
-			setContent(response)
-			setFetching(false)
-		})
-	}, [searchString])
+	useAsync(() => searchFn(searchString), [searchString])
 
 	const onMouseDown = useCallback((_event) => _event.preventDefault(), [])
 

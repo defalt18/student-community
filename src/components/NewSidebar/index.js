@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import c from 'classnames'
 import { LogoutIcon, BackIcon } from 'components/Icons'
 import { useToggle } from 'react-use'
@@ -51,8 +51,9 @@ function NewSidebar(props) {
 			>
 				<BackIcon />
 			</button>
-			{_map(OPTIONS, (option) => (
+			{_map(OPTIONS, (option, index) => (
 				<Option
+					key={index}
 					open={open}
 					callback={onClick}
 					activeItem={activeItem}

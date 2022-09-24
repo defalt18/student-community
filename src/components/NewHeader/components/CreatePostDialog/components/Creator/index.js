@@ -82,6 +82,7 @@ function Creator(props) {
 				<Button
 					variant='outline'
 					text='Discard'
+					className='text-secondary'
 					size='medium'
 					callback={toggle}
 				/>

@@ -69,9 +69,6 @@ package-lock.json
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-
 # misc
 .idea
 
